@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/mapfunctions.js"></script>
 
     <title>Wohnbevölkerung</title>
 </head>
@@ -156,7 +157,7 @@
             <form action="index.php" method="GET" id="form">
                 <div class="dropdown">
                     <p>Gemeinde:</p>
-                    <select id="community" name="community">
+                    <select id="community" name="community" onchange="dropdown_selection_changed()">
                         <?php
                         $communitys = array("Aadorf", "Affeltrangen", "Altnau", "Amlikon-Bissegg", "Amriswil", "Arbon", "Basadingen-Schlattingen", "Berg", "Berlingen", "Bettwiesen", "Bichelsee-Balterswil", "Birwinken", "Bischofszell", "Bottighofen", "Braunau", "Bürglen", "Bussnang", "Diessenhofen", "Dozwil", "Egnach", "Erlen", "Ermatingen", "Eschenz", "Eschlikon", "Felben-Wellhausen", "Fischingen", "Frauenfeld", "Gachnang", "Gottlieben", "Güttingen", "Hauptwil-Gottshaus", "Hefenhofen", "Herdern", "Hohentannen", "Homburg", "Horn", "Hüttlingen", "Hüttwilen", "Kemmental", "Kesswil", "Kradolf-Schönenberg", "Kreuzlingen", "Langrickenbach", "Lengwil", "Lommis", "Mammern", "Märstetten", "Matzingen", "Müllheim", "Münchwilen", "Münsterlingen", "Neunforn", "Pfyn", "Raperswilen", "Rickenbach", "Roggwil", "Romanshorn", "Salenstein", "Salmsach", "Schlatt", "Schönholzerswilen", "Sirnach", "Sommeri", "Steckborn", "Stettfurt", "Sulgen", "Tägerwilen", "Thundorf", "Tobel-Tägerschen", "Uesslingen-Buch", "Uttwil", "Wagenhausen", "Wäldi", "Wängi", "Warth-Weiningen", "Weinfelden", "Wigoltingen", "Wilen", "Wuppenau", "Zihlschlacht-Sitterdorf");
                         sort($communitys);
@@ -173,20 +174,23 @@
         <div class="info">
             <p><?php echo 'Gemeinde: ' . $_GET['community']; ?></p>
             <p><?php echo 'Bezirk: ' . $_GET['community']; ?></p>
+            
         </div>
         <div class="legend">
             <?php
             function drawNewElement($countries) {
+                $colors = array("#FFE437","#EE4747","#CD51D7","#25A035","#4278CF","#000000");
+                $i = 0;
                 foreach ($countries as $value) {
                     echo ('<div class="legendElement">
-                        <div class="checkboxBackground">
+                        <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
                             <input type="checkbox" id="' . $value . '">
-                            <label for="' . $value . '"></label>
                         </div>
                         <div class="labelBackground">
                             <label for="' . $value . '"> ' . $value . ' </label>
                         </div>
                     </div>');
+                    $i += 1;
                 }
             }
             $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
