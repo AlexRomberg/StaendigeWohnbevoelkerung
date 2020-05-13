@@ -182,56 +182,19 @@
             <p id ="demo">
             <?php 
             if (isset($_GET['x'])){
-            $data = json_decode(file_get_contents("data.json"), true);
-            echo 'Bezirk: ' . $data[$_GET['x']]["district"]; 
+            //$data = json_decode(file_get_contents("data.json"), true);
+            //echo 'Bezirk: ' . $data[$_GET['x']]["district"]; 
             }
             ?>
             </p>
             
         </div>
-        <div class="pieChart" id="PieContainer" style="width: 100%; height: 100%">
-            <script>
-                new PieChart({
-  container: document.getElementById("container"),
-  data: [{
-    value: 20,
-    col: "#ff6666",
-    legend: "20 units"
-  }, {
-    value: 90,
-    col: "#ff8c66",
-    legend: "25 units"
-  }, {
-    value: 30,
-    col: "#ffb366",
-    legend: "30 units"
-  }, {
-    value: 5,
-    col: "#ffd966",
-    legend: "55 units"
-  }],
-  onMouseEnterSlice: function(sliceData) {
-    console.log("enter", sliceData);
-  },
-  onMouseLeaveSlice: function(sliceData) {
-    console.log("leave", sliceData);
-  }
-});
-            </script>
-        </div>
+  
+         <canvas id="myCanvas"></canvas>
         
-        <script type="text/javascript">
-            $("#chart").igPieChart({
-                width: "435px",
-                height: "435px",
-                dataSource: result, 
-                dataValue: "count",
-                dataLabel: "Domain",
-                labelsPosition: "bestFit"
-                });
-            });
-            <script>
-        </div>
+
+        
+  
         <div class="legend">
             <?php
             function drawNewElement($countries) {
@@ -263,6 +226,8 @@
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/mapfunction.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
 
 </body>
 
