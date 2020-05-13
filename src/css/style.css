@@ -169,6 +169,7 @@
     
     footer p {
         float: right;
+        margin-right: 10px;
     }
     
     footer a {
