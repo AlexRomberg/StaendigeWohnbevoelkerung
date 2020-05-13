@@ -7,7 +7,7 @@ function communityClicked() {
 }
 
 function dropdown_selection_changed() {
-    var x = document.getElementById("mySelect").value;
-    document.getElementById("community").innerHTML = "You selected: " + x;
-
+    var x = document.getElementById("community").value;
+    //Redirect to yourself
+    window.location.replace("index.php?x=" + x);
 }

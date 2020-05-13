@@ -17,8 +17,8 @@
 
 <body>
     <?php
-/*
-    function addLineToJSON($community, $district, $year, $country, $ammount)
+
+   /* function addLineToJSON($community, $district, $year, $country, $ammount)
     {
         $data = json_decode(file_get_contents("data.json"), true);
         if (!isset($data["$community"])) {
@@ -172,8 +172,15 @@
     </div>
     <div class="detail">
         <div class="info">
-            <p><?php echo 'Gemeinde: ' . $_GET['community']; ?></p>
-            <p><?php echo 'Bezirk: ' . $_GET['community']; ?></p>
+        
+            <p><?php echo "Gemeinde: " . $_GET['x']?></p>
+            <p id ="demo"><?php 
+            if (isset($_GET['x'])){
+            $data = json_decode(file_get_contents("data.json"), true);
+            
+            echo 'Bezirk: ' . $data[$_GET['x']]["district"]; 
+            }
+            ?></p>
             
         </div>
         <div class="legend">
