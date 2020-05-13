@@ -17,38 +17,25 @@
 
 <body>
     <?php
-    fopen("data.json", 'w');
-
-   function addLineToJSON($community, $district, $year, $country, $ammount)
-    {
-        $data = json_decode(file_get_contents("data.json"), true);
-        if (!isset($data["$community"])) {
-            $data["$community"] = array("district" => $district);
-        }
-        $data["$community"]["$year"][] = array("county" => $country, "ammount" => $ammount);
-        file_put_contents('data.json', json_encode($data));
-    }
-
-    $file = "https://statistik.tg.ch/public/upload/assets/92713/Bev_Gemeinde_auslStaatsangeh_GrGruppen_2015_2019.csv";
-    $array = file($file);
-
-    $first = true;
-
-    foreach ($array as $line) {
-        if (!$first) {
-            $data = explode(";", $line);
-            $community = $data[1];
-            $district = substr($data[3], 7);
-            $year = $data[4];
-            $country = $data[6];
-            $ammount = $data[7];
-            addLineToJSON($community, $district, $year, $country, $ammount);
-        }
-        $first = false;
+    if (!file_exists('data.json')) {
+        $display = 'none';
+        echo ('<div id="loader"></div>');
+        echo ('<script>
+            var myVar;
+            myVar = setTimeout(showPage, 3000);
+        
+            function showPage() {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("WebSite").style.display = "block";
+            }
+        </script>');
+        include 'createJSON.php';
+        $display = 'block';
+    } else {
+        $display = 'block';
     }
     ?>
-
-
+    <div style="display:<?php echo ($display)?>;" id="WebSite " class="animate-bottom">
     <div class="top">
         <header>
             <svg xmlns="http://www.w3.org/2000/svg">
@@ -225,6 +212,8 @@
     <footer>
         <p>Quelle <a href="https://opendata.swiss/de/dataset/standige-wohnbevolkerung-kanton-thurgau/resource/6e110677-3539-4b9a-964e-0d7c0a0d5007">opendata.swiss</a> | © Alexander, Elias, Maximilian</p>
     </footer>
+    </div>
+
 
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -238,7 +227,7 @@
 
 
 
-<!-- Auto Reload 
+<!-- Auto Reload
 <script>
     setInterval(function() {
         location.reload();
