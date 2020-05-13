@@ -17,6 +17,7 @@
 
 <body>
     <?php
+    /*
     fopen("data.json", 'w');
 
    function addLineToJSON($community, $district, $year, $country, $ammount)
@@ -45,9 +46,14 @@
             addLineToJSON($community, $district, $year, $country, $ammount);
         }
         $first = false;
-    }
+    }*/
     ?>
 
+<?php 
+            if (!isset($_GET['x'])){
+                $_GET['x'] = "Aadorf";
+            }
+        ?>
 
     <div class="top">
         <header>
@@ -69,7 +75,7 @@
             <div class="map">
                 <!-- MAP -->
                 <style><?php 
-                    echo('#'.$_GET['x'].' {fill:  #ccc;}');
+                    echo('#'.$_GET['x'].' {fill:  #b9b9b9;}');
                 ?>
                 </style>
                 <svg id="map" width="100%" height="100%" viewBox="0 0 800 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -183,11 +189,9 @@
         <div class="info">
             <p><?php echo "Gemeinde: " . $_GET['x']?></p> <!-- Get the selected Community -->
             <p id ="demo">
-            <?php 
-            if (isset($_GET['x'])){
-            //$data = json_decode(file_get_contents("data.json"), true);
-            //echo 'Bezirk: ' . $data[$_GET['x']]["district"]; 
-            }
+            <?php
+            $data = json_decode(file_get_contents("data.json"), true);
+            echo 'Bezirk: ' . $data[$_GET['x']]["district"]; 
             ?>
             </p>
             
@@ -228,9 +232,8 @@
 
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="js/mapfunction.js"></script>
-    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/chart.js"></script>
 
 </body>
 

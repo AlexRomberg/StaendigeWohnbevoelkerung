@@ -56,7 +56,7 @@
     }
     
     .map svg path:hover {
-        fill: rgb(185, 185, 185);
+        fill: #ccc;
         cursor: pointer;
     }
     /* --------- Dropdown --------- */
