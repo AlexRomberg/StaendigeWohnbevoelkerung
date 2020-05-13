@@ -1,193 +1,190 @@
-* {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-/* --------- Body --------- */
-
-body {}
-
-.top {
-    height: calc(100vh - 20px);
-    max-height: calc(100vh - 20px);
-}
-
-
-/* --------- Header --------- */
-
-header {
-    background-color: #14A04B;
-    padding: 10px;
-    display: flex;
-    flex-wrap: nowrap;
-    max-height: 100px;
-}
-
-header svg {
-    flex-grow: 1;
-    position: relative;
-    margin: auto;
-    height: 70px;
-    min-width: 192px;
-}
-
-header h1 {
-    flex-grow: 10;
-    position: relative;
-    margin: auto;
-}
-
-/* --------- Main --------- */
-
-main {}
-
-.map {
-    width: 76%;
-    margin: 0 12%;
-    height: 70vh;
-}
-
-.map svg path {
-    fill: #E3E3E3;
-    stroke: rgb(255, 255, 255);
-    stroke-width: 0.8px;
-}
-
-.map svg path:hover {
-    fill: rgb(185, 185, 185);
-    cursor: pointer;
-}
-
-
-/* --------- Dropdown --------- */
-
-.dropdown {
-    margin: 0 12%;
-    margin-top: 20px;
-    position: relative;
-}
-
-.dropdown::before {
-    font-family: FontAwesome;
-    content: "\f106";
-    font-size: 20px;
-    position: absolute;
-    right: 15px;
-    top: 32px;
-    color: black;
-    pointer-events: none;
-}
-
-.dropdown p {
-    font-size: 20px;
-}
-
-.dropdown select {
-    width: 100%;
-    height: 40px;
-    padding-left: 10px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    font-size: 14px;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.dropdown select option {
-    color: #666;
-}
-
-
-/* --------- detail --------- */
-
-.detail {
-    margin-top: 20px;
-    height: 700px;
-    background-color: #ddd;
-}
-
-.info p{
-    font-size: 24px;
-}
-.info{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --------- legend --------- */
-
-.legend {
-    width: 300px;
-    float: right;
-    box-shadow: inset 0 1px 3px #ddd;
-    margin-right: 10%;
-    border-radius: 7px;
-    background-color: #C8C8C8;
-    overflow: hidden;
-}
-
-.legendElement {
-    display: flex;
-    align-items: stretch;
-    text-align: center;
-}
-
-.checkboxBackground {
-    padding: 10px 15px;
-    position: relative;
-}
-
-/*.checkboxBackground input {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-}*/
-
-.labelBackground {
-    margin-top: 7px;;
-    margin-left: 10px;
-    font-size: 20px;;
-}
-
-
-/* --------- Footer --------- */
-
-footer {
-    background-color: #14A04B;
-    width: 100%;
-    height: 20px;
-    margin-right: 5px;
-}
-
-footer p {
-    float: right;
-}
-
-footer a {
-    text-decoration: none;
-    color: black;
-}
-
-
-/* --------- Responsives ---------*/
-
-@media only screen and (max-width: 530px) {
-    header svg {
-        display: none;
+    * {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
     }
-    header h1 {
-        font-size: 15px;
-    }
-}
-
-@media only screen and (max-width: 530px) {
-    footer {
-        height: 50px;
-    }
+    /* --------- Body --------- */
+    
+    body {}
+    
     .top {
-        height: calc(100vh - 50px);
+        height: calc(100vh - 20px);
+        max-height: calc(100vh - 20px);
     }
-}
+    /* --------- Header --------- */
+    
+    header {
+        background-color: #14A04B;
+        padding: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        max-height: 100px;
+    }
+    
+    header svg {
+        flex-grow: 1;
+        position: relative;
+        margin: auto;
+        height: 70px;
+        min-width: 192px;
+    }
+    
+    header h1 {
+        flex-grow: 10;
+        position: relative;
+        margin: auto;
+    }
+    /* --------- Main --------- */
+    
+    main {}
+    
+    .map {
+        width: 76%;
+        margin: 0 12%;
+        height: 70vh;
+    }
+    
+    .map svg path {
+        fill: #E3E3E3;
+        stroke: rgb(255, 255, 255);
+        stroke-width: 0.8px;
+    }
+    
+    .map svg path:hover {
+        fill: rgb(185, 185, 185);
+        cursor: pointer;
+    }
+    /* --------- Dropdown --------- */
+    
+    .dropdown {
+        margin: 0 12%;
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .dropdown::before {
+        font-family: FontAwesome;
+        content: "\f106";
+        font-size: 20px;
+        position: absolute;
+        right: 15px;
+        top: 32px;
+        color: black;
+        pointer-events: none;
+    }
+    
+    .dropdown p {
+        font-size: 20px;
+    }
+    
+    .dropdown select {
+        width: 100%;
+        height: 40px;
+        padding-left: 10px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        font-size: 14px;
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .dropdown select option {
+        color: #666;
+    }
+    /* --------- detail --------- */
+    
+    .detail {
+        margin-top: 20px;
+        height: 700px;
+        background-color: #ddd;
+    }
+    
+    .info p {
+        font-size: 24px;
+    }
+    
+    .info {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* --------- legend --------- */
+    
+    .legend {
+        width: 300px;
+        float: right;
+        box-shadow: inset 0 1px 3px #ddd;
+        margin-right: 10%;
+        border-radius: 7px;
+        background-color: #C8C8C8;
+        overflow: hidden;
+    }
+    
+    .legendElement {
+        display: flex;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .checkboxBackground {
+        padding: 10px 15px;
+        position: relative;
+    }
+    
+    .checkboxBackground input {
+        width: 1.3em;
+        height: 1.3em;
+        background-color: white;
+        border-radius: 20%;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    .checkboxBackground input:checked {
+        background-color: gray;
+    }
+    
+    .labelBackground {
+        margin-top: 7px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    /* --------- Footer --------- */
+    
+    footer {
+        background-color: #14A04B;
+        width: 100%;
+        height: 20px;
+        margin-right: 5px;
+    }
+    
+    footer p {
+        float: right;
+    }
+    
+    footer a {
+        text-decoration: none;
+        color: black;
+    }
+    /* --------- Responsives ---------*/
+    
+    @media only screen and (max-width: 530px) {
+        header svg {
+            display: none;
+        }
+        header h1 {
+            font-size: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 530px) {
+        footer {
+            height: 50px;
+        }
+        .top {
+            height: calc(100vh - 50px);
+        }
+    }
