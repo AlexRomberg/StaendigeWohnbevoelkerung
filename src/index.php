@@ -2,22 +2,33 @@
 
 <!DOCTYPE html>
 <html>
-<?php //error_reporting(0); 
-?>
+<?php error_reporting(0); ?>
 
 <head>
     <meta charset="UTF-8">
 
+    <!-- Stylesheets -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+    <link rel="manifest" href="ico/site.webmanifest">
+    <link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#14a04b">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <meta name="msapplication-TileColor" content="#14a04b">
+    <meta name="msapplication-config" content="ico/browserconfig.xml">
+    <meta name="theme-color" content="#14a04b">
 
     <title>Wohnbevölkerung</title>
 </head>
 
 <body>
     <?php
-    fopen("data.json", 'w');
+    /*fopen("data.json", 'w');
 
    function addLineToJSON($community, $district, $year, $country, $ammount)
     {
@@ -45,7 +56,7 @@
             addLineToJSON($community, $district, $year, $country, $ammount);
         }
         $first = false;
-    }
+    }*/
     ?>
 
 
@@ -220,17 +231,24 @@
             ?>
         </div>
 
+
+        <!-- Examplecharts -->
+        <div style="width: 600px; height: 300px;">
+          <canvas id="lineExample" width="100" height="50"></canvas>
+        </div>
+
     </div>
 
     <footer>
         <p>Quelle <a href="https://opendata.swiss/de/dataset/standige-wohnbevolkerung-kanton-thurgau/resource/6e110677-3539-4b9a-964e-0d7c0a0d5007">opendata.swiss</a> | © Alexander, Elias, Maximilian</p>
     </footer>
 
-
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="js/mapfunction.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
     <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <script src="js/piechart.js"></script>
+    <script src="js/charts.js"></script>
 
 </body>
 
