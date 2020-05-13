@@ -1,4 +1,4 @@
-var select = document.getElementById("community").addEventListener("click", dropdownSelectionChanged);
+var select = document.getElementById("community").addEventListener("change", dropdownSelectionChanged);
 var svg = document.getElementById("map");
 
 var paths = svg.getElementsByTagName("path");

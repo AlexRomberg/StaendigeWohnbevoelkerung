@@ -39,8 +39,9 @@
     
     .map {
         width: 76%;
-        margin: 0 12%;
-        height: 70vh;
+        margin: 50px 12%;
+        margin-bottom: 25px;
+        height: calc(100vh - 100px - 64px - 100px);
     }
     
     .map svg path {
@@ -171,16 +172,13 @@
     }
     /* --------- Responsives ---------*/
     
-    @media only screen and (max-width: 530px) {
+    @media (max-width: 540px) {
         header svg {
             display: none;
         }
         header h1 {
             font-size: 15px;
         }
-    }
-    
-    @media only screen and (max-width: 530px) {
         footer {
             height: 50px;
         }
