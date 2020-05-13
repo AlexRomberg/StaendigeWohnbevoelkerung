@@ -1,12 +1,18 @@
+var select = document.getElementById("community").addEventListener("change", dropdownSelectionChanged);
 var svg = document.getElementById("map");
-svg.getElementsByTagName("path").addEventListener("click", communityClicked);
 
-function communityClicked() {
-    alert('Ouch!');
-    //document.getElementById("community").selectedIndex = " Herdern"; // Update dropdown list with the selected community on the map
+var paths = svg.getElementsByTagName("path");
+
+Array.from(paths).forEach(path => {
+    path.addEventListener("click", communityClicked);
+});
+
+function communityClicked(e) {
+    //console.log(e.target.id);
+    window.location.replace("index.php?x=" + e.target.id);
 }
 
-function dropdown_selection_changed() {
+function dropdownSelectionChanged() {
     var x = document.getElementById("community").value;
     //Redirect to yourself
     window.location.replace("index.php?x=" + x);
