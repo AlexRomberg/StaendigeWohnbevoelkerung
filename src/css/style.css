@@ -6,6 +6,11 @@
     
     body {}
     
+    #myCanvas {
+        margin-left: 10%;
+        padding-top: 6%;
+    }
+    
     .top {
         height: calc(100vh - 20px);
         max-height: calc(100vh - 20px);
