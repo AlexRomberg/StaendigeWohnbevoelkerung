@@ -2,15 +2,26 @@
 
 <!DOCTYPE html>
 <html>
-<?php //error_reporting(0); 
-?>
+<?php error_reporting(0); ?>
 
 <head>
     <meta charset="UTF-8">
 
+    <!-- Stylesheets -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+    <link rel="manifest" href="ico/site.webmanifest">
+    <link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#14a04b">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <meta name="msapplication-TileColor" content="#14a04b">
+    <meta name="msapplication-config" content="ico/browserconfig.xml">
+    <meta name="theme-color" content="#14a04b">
 
     <title>Wohnbevölkerung</title>
 </head>
