@@ -239,9 +239,7 @@
     function GiveDataToChart (){
       $data = json_decode(file_get_contents("data.json"), true);
       $countries = $data[$_GET['x']];
-      echo '<script>
-      var ar = '.<?php echo json_encode($countries). ?>.';
-      </script>';
+      echo '<script> var ar = '. json_encode($countries) .'; </script>';
     }
 
 
