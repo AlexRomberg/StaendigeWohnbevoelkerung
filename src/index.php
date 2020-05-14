@@ -235,13 +235,13 @@
       ?>
     </div>
 
-    <?php
+      <?php
     function GiveDataToChart (){
       $data = json_decode(file_get_contents("data.json"), true);
-      $countries = $data[$_GET['x'];
-      echo <script>
-      var ar = <?php echo json_encode($countries) ?>;
-      </script>;
+      $countries = $data[$_GET['x']];
+      echo '<script>
+      var ar = '.<?php echo json_encode($countries). ?>.';
+      </script>';
     }
 
 
