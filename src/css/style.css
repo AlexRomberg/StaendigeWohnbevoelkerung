@@ -222,7 +222,7 @@
     }
     /* --------- Responsives ---------*/
     
-    @media (max-width: 540px) {
+    @media (max-width: 1000px) {
         header svg {
             display: none;
         }
@@ -234,5 +234,8 @@
         }
         .top {
             height: calc(100vh - 50px);
+        }
+        .charts {
+            flex-direction: column;
         }
     }
