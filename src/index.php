@@ -244,7 +244,6 @@
     <p>Quelle <a href="https://opendata.swiss/de/dataset/standige-wohnbevolkerung-kanton-thurgau/resource/6e110677-3539-4b9a-964e-0d7c0a0d5007">opendata.swiss</a> | © Alexander, Elias, Maximilian</p>
   </footer>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
   <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
