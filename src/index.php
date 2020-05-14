@@ -196,6 +196,7 @@
   </div>
 
   <div class="detail">
+     <!-- Gemeinde und Bezirk -->
     <div class="info">
       <p><?php echo "Gemeinde: " . $_GET['x']?></p> <!-- Get the selected Community -->
       <p id="demo">
@@ -223,6 +224,7 @@
                           </div>
                           <div class="labelBackground">
                             <label for="' . $value . '"> ' . $value . ' </label>
+                            <span class="checkmark"></span>
                           </div>
                         </div>');
             $i += 1;
@@ -232,6 +234,19 @@
         drawNewElement($arr);
       ?>
     </div>
+
+    <?php
+    function GiveDataToChart (){
+      $data = json_decode(file_get_contents("data.json"), true);
+      $countries = $data[$_GET['x'];
+      echo <script>
+      var ar = <?php echo json_encode($countries) ?>;
+      </script>;
+    }
+
+
+
+ ?>
 
 
     <!-- Examplecharts -->
@@ -249,6 +264,7 @@
   <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
   <script src="js/piechart.js"></script>
   <script src="js/charts.js"></script>
+  <script src="js/events.js"></script>
 
 </body>
 
