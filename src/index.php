@@ -193,15 +193,17 @@
       </div>
 
       <div class="leg">
-        <div class="legend">
+        <div class="legend" id="legend">
           <?php
-            function drawNewElement($countries) {
-              $colors = array("#FFE437","#EE4747","#CD51D7","#25A035","#4278CF","#000000");
+              $data = json_decode(file_get_contents("data.json"), true);
+            
+              function drawNewElement($countries) {
+              $colors = array("#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7");
               $i = 0;
               foreach ($countries as $value) {
                 echo (' <div class="legendElement">
                               <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
-                                <input type="checkbox" id="' . $value . '">
+                                <input type="checkbox" checked id="' . $value .$i . '">
                               </div>
                               <div class="labelBackground">
                                 <label for="' . $value . '"> ' . $value . ' </label>
@@ -210,20 +212,16 @@
                 $i += 1;
               }
             }
+            $arrayCountry = [];
+            foreach($data[$_GET['x']]['2019'] as $val) {
+              $arrayCountry[] = $val['country'];
+            }
             $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
-            drawNewElement($arr);
+            drawNewElement($arrayCountry);
+
+             $countries = $data[$_GET['x']];
+             echo '<script> var ar = '. json_encode($countries) .'; </script>';
           ?>
-
-          <?php
-    function GiveDataToChart (){
-      $data = json_decode(file_get_contents("data.json"), true);
-      $countries = $data[$_GET['x']];
-      echo '<script> var ar = '. json_encode($countries) .'; </script>';
-    }
-
-
-
- ?>
         </div>
       </div>
     </div>
@@ -234,9 +232,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-  <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
-  <script src="js/piechart.js"></script>
   <script src="js/charts.js"></script>
   <script src="js/events.js"></script>
 

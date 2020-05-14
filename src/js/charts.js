@@ -1,5 +1,7 @@
 var pieCanvas = document.getElementById('pieChartCanvas').getContext('2d');
 var lineCanvas = document.getElementById('lineChartCanvas').getContext('2d');
+var lineChart;
+var pieChart;
 
 let line = {
     // The type of chart we want to create
@@ -52,10 +54,11 @@ let pie = {
     // The data for our dataset
     data: {
         datasets: [{
-            data: [10, 20, 30, 40, 50],
+            data: [],
             backgroundColor: ["#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7"],
             borderColor: "rgba(0,0,0,0)"
-        }]
+        }],
+        hiddenSlices: [1, 3]
     },
 
     // Configuration options go here
@@ -66,9 +69,7 @@ let pie = {
     }
 }
 
-function createDiagramms(json) {
-    data = JSON.parse(json);
-
+function createDiagramms(data) {
     // get years
     years = Object.keys(data);
     years.pop();
@@ -80,8 +81,6 @@ function createDiagramms(json) {
         countrys.push(value['country']);
     });
 
-    pie['data']['labels'] = years;
-
     // get Values from Json orderd by year
     values = [];
     years.forEach(year => {
@@ -91,7 +90,7 @@ function createDiagramms(json) {
         });
         values.push(yearValueList)
     });
-    values.reverse();
+
 
 
     valuesLand = [];
@@ -103,8 +102,6 @@ function createDiagramms(json) {
         valuesLand.push(valueLand);
     }
 
-    console.log(valuesLand);
-
     color = ["rgb(37, 160, 53)", "rgb(66, 120, 207)", "rgb(238, 71, 71)", "rgb(255, 228, 55)", "rgb(205, 81, 215)"]
     for (let i = 0; i < countrys.length; i++) {
         line['data']['datasets'].push({
@@ -115,6 +112,17 @@ function createDiagramms(json) {
         });
     }
     /*
+    datasets: [{
+        data: [10, 20, 30, 40, 50],
+        backgroundColor: ["#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7"],
+        borderColor: "rgba(0,0,0,0)"
+    }]
+    */
+
+    pie['data']['labels'] = countrys;
+    pieData = (values.pop()).map(Number);
+    pie['data']['datasets'][0]['data'] = pieData;
+    /*
     {
         label: 'My First dataset',
         backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -123,8 +131,14 @@ function createDiagramms(json) {
     }
     */
 
-    var lineChart = new Chart(lineCanvas, line);
-    var pieChart = new Chart(pieCanvas, pie);
+    lineChart = new Chart(lineCanvas, line);
+    pieChart = new Chart(pieCanvas, pie);
 }
 
-createDiagramms('{"district": "Arbon","2019": [{"country": "Deutschland","ammount": "985"},{"country": "Italien","ammount": "691"},{"country": "Mazedonien","ammount": "340"},{"country": "Portugal","ammount": "200"},{"country": "Sonstige (inkl. ausl\u00e4ndische Staatsangeh\u00f6rigkeit unbekannt)","ammount": "2594"}],"2018": [{"country": "Deutschland","ammount": "988"},{"country": "Italien","ammount": "675"},{"country": "Mazedonien","ammount": "330"},{"country": "Portugal","ammount": "212"},{"country": "Sonstige (inkl. ausl\u00e4ndische Staatsangeh\u00f6rigkeit unbekannt)","ammount": "2475"}],"2017": [{"country": "Deutschland","ammount": "995"},{"country": "Italien","ammount": "680"},{"country": "Mazedonien","ammount": "356"},{"country": "Portugal","ammount": "213"},{"country": "Sonstige (inkl. ausl\u00e4ndische Staatsangeh\u00f6rigkeit unbekannt)","ammount": "2399"}],"2016": [{"country": "Deutschland","ammount": "974"},{"country": "Italien","ammount": "688"},{"country": "Mazedonien","ammount": "361"},{"country": "Portugal","ammount": "195"},{"country": "Sonstige (inkl. ausl\u00e4ndische Staatsangeh\u00f6rigkeit unbekannt)","ammount": "2294"}],"2015": [{"country": "Deutschland","ammount": "974"},{"country": "Italien","ammount": "688"},{"country": "Mazedonien","ammount": "358"},{"country": "Portugal","ammount": "199"},{"country": "Sonstige (inkl. ausl\u00e4ndische Staatsangeh\u00f6rigkeit unbekannt)","ammount": "2185"}]}');
+function removeData(chart, index) {
+    console.log(chart.data.labels[index]);
+    console.log(chart.data.datasets[index].data);
+    chart.update();
+}
+
+createDiagramms(ar);

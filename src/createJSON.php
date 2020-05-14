@@ -7,7 +7,7 @@ fopen("data.json", 'w');
         if (!isset($data["$community"])) {
             $data["$community"] = array("district" => $district);
         }
-        $data["$community"]["$year"][] = array("county" => $country, "ammount" => $ammount);
+        $data["$community"]["$year"][] = array("country" => $country, "ammount" => $ammount);
         file_put_contents('data.json', json_encode($data));
     }
 
@@ -22,7 +22,7 @@ fopen("data.json", 'w');
             $community = $data[1];
             $district = substr($data[3], 7);
             $year = $data[4];
-            $country = $data[6];
+            $country = str_replace(" (inkl. ausländische Staatsangehörigkeit unbekannt)","",$data[6]);
             $ammount = $data[7];
             addLineToJSON($community, $district, $year, $country, $ammount);
         }
