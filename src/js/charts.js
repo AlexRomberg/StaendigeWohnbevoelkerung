@@ -2,6 +2,7 @@ var pieCanvas = document.getElementById('pieChartCanvas').getContext('2d');
 var lineCanvas = document.getElementById('lineChartCanvas').getContext('2d');
 var lineChart;
 var pieChart;
+var pieBackup;
 
 let line = {
     // The type of chart we want to create
@@ -111,34 +112,14 @@ function createDiagramms(data) {
             data: valuesLand[i]
         });
     }
-    /*
-    datasets: [{
-        data: [10, 20, 30, 40, 50],
-        backgroundColor: ["#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7"],
-        borderColor: "rgba(0,0,0,0)"
-    }]
-    */
 
     pie['data']['labels'] = countrys;
     pieData = (values.pop()).map(Number);
+    pieBackup = pieData.slice();
     pie['data']['datasets'][0]['data'] = pieData;
-    /*
-    {
-        label: 'My First dataset',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45]
-    }
-    */
 
     lineChart = new Chart(lineCanvas, line);
     pieChart = new Chart(pieCanvas, pie);
-}
-
-function removeData(chart, index) {
-    console.log(chart.data.labels[index]);
-    console.log(chart.data.datasets[index].data);
-    chart.update();
 }
 
 createDiagramms(ar);

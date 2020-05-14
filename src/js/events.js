@@ -21,7 +21,12 @@ function legendChanged(e) {
     index = id.substr(-1);
     line.data.datasets[index].hidden = !e.target.checked;
     lineChart.update();
-    //removeData(lineChart, index)
+    if (e.target.checked) {
+        pie.data.datasets[0].data[index] = pieBackup[index];
+    } else {
+        pie.data.datasets[0].data[index] = undefined;
+    }
+    pieChart.update();
 }
 
 function communityClicked(e) {
