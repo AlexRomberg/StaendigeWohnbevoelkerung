@@ -1,4 +1,6 @@
-var ctx = document.getElementById('lineExample').getContext('2d');
+var pieCanvas = document.getElementById('pieChartCanvas').getContext('2d');
+var lineCanvas = document.getElementById('lineChartCanvas').getContext('2d');
+
 let line = {
     // The type of chart we want to create
     type: 'line',
@@ -11,9 +13,6 @@ let line = {
 
     // Configuration options go here
     options: {
-        tooltips: {
-            enabled: false
-        },
         scales: {
             xAxes: [{
                 gridLines: {
@@ -33,7 +32,7 @@ let line = {
             }]
         },
         legend: {
-            display: false
+            display: true
         },
         elements: {
             point: {
@@ -54,29 +53,16 @@ let pie = {
     type: 'pie',
 
     // The data for our dataset
-    data: [{
-            value: 20,
-            color: "#878BB6"
-        },
-        {
-            value: 40,
-            color: "#4ACAB4"
-        },
-        {
-            value: 10,
-            color: "#FF8153"
-        },
-        {
-            value: 30,
-            color: "#FFEA88"
-        }
-    ],
+    data: {
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: ["#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7"],
+            borderColor: "rgba(0,0,0,0)"
+        }]
+    },
 
     // Configuration options go here
     options: {
-        tooltips: {
-            enabled: false
-        },
         legend: {
             display: false
         }
@@ -87,7 +73,7 @@ function createDiagramms(countries, years, values) {
 
 
 
-    //var lineChart = new Chart(ctx, line);
-    var pieChart = new Chart(ctx, pie);
+    var lineChart = new Chart(lineCanvas, line);
+    var pieChart = new Chart(pieCanvas, pie);
 }
 createDiagramms(null, null, null);

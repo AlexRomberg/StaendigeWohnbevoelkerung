@@ -116,13 +116,39 @@
     .info {
         padding-top: 10%;
     }
+    /* --------- charts --------- */
+    
+    .charts {
+        background-color: red;
+        display: flex;
+        align-content: stretch;
+        padding: 30px 100px;
+    }
+    
+    .charts canvas {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .pie {
+        padding: 50px;
+        background-color: blue;
+    }
+    
+    .line {
+        background-color: #14A04B;
+        flex-grow: 10;
+    }
+    
+    .leg {
+        background-color: yellow;
+        width: 300px;
+    }
     /* --------- legend --------- */
     
     .legend {
         width: 300px;
-        float: right;
         box-shadow: inset 0 1px 3px #ddd;
-        margin-right: 10%;
         border-radius: 7px;
         background-color: #C8C8C8;
         overflow: hidden;

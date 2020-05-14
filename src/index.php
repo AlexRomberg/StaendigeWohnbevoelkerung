@@ -208,35 +208,39 @@
       </p>
     </div>
 
-    <!-- Piechart -->
-    <canvas id="myCanvas"></canvas>
+    <div class="charts">
+      <!-- Piechart -->
+      <div class="pie">
+        <canvas id="pieChartCanvas" width="300" height="300"></canvas>
+      </div>
 
-    <div class="legend">
-      <?php
-        function drawNewElement($countries) {
-          $colors = array("#FFE437","#EE4747","#CD51D7","#25A035","#4278CF","#000000");
-          $i = 0;
-          foreach ($countries as $value) {
-            echo (' <div class="legendElement">
-                          <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
-                            <input type="checkbox" id="' . $value . '">
-                          </div>
-                          <div class="labelBackground">
-                            <label for="' . $value . '"> ' . $value . ' </label>
-                          </div>
-                        </div>');
-            $i += 1;
-          }
-        }
-        $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
-        drawNewElement($arr);
-      ?>
-    </div>
+      <div class="line">
+        <canvas id="lineChartCanvas" width="600" height="300"></canvas>
+      </div>
 
-
-    <!-- Examplecharts -->
-    <div style="width: 600px; height: 300px;">
-      <canvas id="lineExample" width="100" height="50"></canvas>
+      <div class="leg">
+        <div class="legend">
+          <?php
+            function drawNewElement($countries) {
+              $colors = array("#FFE437","#EE4747","#CD51D7","#25A035","#4278CF","#000000");
+              $i = 0;
+              foreach ($countries as $value) {
+                echo (' <div class="legendElement">
+                              <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
+                                <input type="checkbox" id="' . $value . '">
+                              </div>
+                              <div class="labelBackground">
+                                <label for="' . $value . '"> ' . $value . ' </label>
+                              </div>
+                            </div>');
+                $i += 1;
+              }
+            }
+            $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
+            drawNewElement($arr);
+          ?>
+        </div>
+      </div>
     </div>
   </div>
 
