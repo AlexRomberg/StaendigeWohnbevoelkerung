@@ -249,6 +249,7 @@
   <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
   <script src="js/piechart.js"></script>
   <script src="js/charts.js"></script>
+  <script src="js/events.js"></script>
 
 </body>
 
