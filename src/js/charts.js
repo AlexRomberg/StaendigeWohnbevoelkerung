@@ -15,13 +15,11 @@ let line = {
         scales: {
             xAxes: [{
                 gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
                     zeroLineWidth: 3
                 }
             }],
             yAxes: [{
                 gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
                     zeroLineWidth: 3
                 },
                 ticks: {
@@ -42,7 +40,7 @@ let line = {
             }
         },
         gridLines: {
-            display: false
+            display: true
         }
     }
 }
