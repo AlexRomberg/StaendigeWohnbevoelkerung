@@ -31,36 +31,9 @@
     if(!isset($_GET['x'])) {
       $_GET['x'] = "Aadorf";
     }
-
-    /*fopen("data.json", 'w');
-
-   function addLineToJSON($community, $district, $year, $country, $ammount)
-    {
-        $data = json_decode(file_get_contents("data.json"), true);
-        if (!isset($data["$community"])) {
-            $data["$community"] = array("district" => $district);
-        }
-        $data["$community"]["$year"][] = array("county" => $country, "ammount" => $ammount);
-        file_put_contents('data.json', json_encode($data));
+    if (!file_exists('data.json')) {
+      include 'createJSON.php';
     }
-
-    $file = "https://statistik.tg.ch/public/upload/assets/92713/Bev_Gemeinde_auslStaatsangeh_GrGruppen_2015_2019.csv";
-    $array = file($file);
-
-    $first = true;
-
-    foreach ($array as $line) {
-        if (!$first) {
-            $data = explode(";", $line);
-            $community = $data[1];
-            $district = substr($data[3], 7);
-            $year = $data[4];
-            $country = $data[6];
-            $ammount = $data[7];
-            addLineToJSON($community, $district, $year, $country, $ammount);
-        }
-        $first = false;
-    }*/
   ?>
 
 
@@ -196,6 +169,7 @@
   </div>
 
   <div class="detail">
+    <!-- Gemeinde und Bezirk -->
     <div class="info">
       <p><?php echo "Gemeinde: " . $_GET['x']?></p> <!-- Get the selected Community -->
       <p id="demo">
@@ -208,35 +182,48 @@
       </p>
     </div>
 
-    <!-- Piechart -->
-    <canvas id="myCanvas"></canvas>
+    <div class="charts">
+      <!-- Piechart -->
+      <div class="pie">
+        <canvas id="pieChartCanvas" width="300" height="300"></canvas>
+      </div>
 
-    <div class="legend">
-      <?php
-        function drawNewElement($countries) {
-          $colors = array("#FFE437","#EE4747","#CD51D7","#25A035","#4278CF","#000000");
-          $i = 0;
-          foreach ($countries as $value) {
-            echo (' <div class="legendElement">
-                          <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
-                            <input type="checkbox" id="' . $value . '">
-                          </div>
-                          <div class="labelBackground">
-                            <label for="' . $value . '"> ' . $value . ' </label>
-                          </div>
-                        </div>');
-            $i += 1;
-          }
-        }
-        $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
-        drawNewElement($arr);
-      ?>
-    </div>
+      <div class="line">
+        <canvas id="lineChartCanvas" width="600" height="300"></canvas>
+      </div>
 
+      <div class="leg">
+        <div class="legend" id="legend">
+          <?php
+              $data = json_decode(file_get_contents("data.json"), true);
+            
+              function drawNewElement($countries) {
+              $colors = array("#25A035", "#4278CF", "#EE4747", "#E4CE43", "#CD51D7");
+              $i = 0;
+              foreach ($countries as $value) {
+                echo (' <div class="legendElement">
+                              <div class="checkboxBackground" style="background-color:' . $colors[$i] . '">
+                                <input type="checkbox" checked id="' . $value .$i . '">
+                              </div>
+                              <div class="labelBackground">
+                                <label for="' . $value . '"> ' . $value . ' </label>
+                              </div>
+                            </div>');
+                $i += 1;
+              }
+            }
+            $arrayCountry = [];
+            foreach($data[$_GET['x']]['2019'] as $val) {
+              $arrayCountry[] = $val['country'];
+            }
+            $arr = array("Deutschland", "Spanien", "Italien", "Kolumbien");
+            drawNewElement($arrayCountry);
 
-    <!-- Examplecharts -->
-    <div style="width: 600px; height: 300px;">
-      <canvas id="lineExample" width="100" height="50"></canvas>
+             $countries = $data[$_GET['x']];
+             echo '<script> var ar = '. json_encode($countries) .'; </script>';
+          ?>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -245,10 +232,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
-  <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
-  <script src="js/piechart.js"></script>
   <script src="js/charts.js"></script>
+  <script src="js/events.js"></script>
 
 </body>
 

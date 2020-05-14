@@ -109,20 +109,62 @@
     
     .info p {
         font-size: 30px;
-        margin-left: 40%;
+        margin-left: calc(50vw - 150px);
         padding-top: 5px;
     }
     
     .info {
-        padding-top: 10%;
+        padding-top: 30px;
+    }
+    /* --------- charts --------- */
+    
+    .charts {
+        display: flex;
+        align-content: stretch;
+        padding: 30px 60px;
+        padding-top: 0;
+        max-width: 90vw;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-height: 500px;
+    }
+    
+    .charts canvas {
+        width: 90%;
+        max-width: 90vw;
+        max-height: 400px;
+    }
+    
+    .pie {
+        padding: 50px;
+    }
+    
+    #pieChartCanvas {
+        margin-top: calc(50% - 50px);
+        margin-left: 0px;
+    }
+    
+    #lineChartCanvas {
+        margin-top: 3%;
+    }
+    
+    .line {
+        flex-grow: 10;
+        width: 90%;
+    }
+    
+    .leg {
+        width: 300px;
+        height: 100%;
+        max-height: 700px;
+        padding-left: 40px;
+        align-self: center;
     }
     /* --------- legend --------- */
     
     .legend {
         width: 300px;
-        float: right;
         box-shadow: inset 0 1px 3px #ddd;
-        margin-right: 10%;
         border-radius: 7px;
         background-color: #C8C8C8;
         overflow: hidden;
@@ -180,7 +222,7 @@
     }
     /* --------- Responsives ---------*/
     
-    @media (max-width: 540px) {
+    @media (max-width: 1000px) {
         header svg {
             display: none;
         }
@@ -192,5 +234,8 @@
         }
         .top {
             height: calc(100vh - 50px);
+        }
+        .charts {
+            flex-direction: column;
         }
     }
