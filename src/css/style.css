@@ -109,7 +109,7 @@
     
     .info p {
         font-size: 30px;
-        margin-left: 40%;
+        margin-left: calc(50vw - 150px);
         padding-top: 5px;
     }
     
@@ -119,30 +119,46 @@
     /* --------- charts --------- */
     
     .charts {
-        background-color: red;
         display: flex;
         align-content: stretch;
-        padding: 30px 100px;
+        padding: 30px 60px;
+        max-width: 90vw;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-height: 500px;
     }
     
     .charts canvas {
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        max-width: 90vw;
+        max-height: 400px;
     }
     
     .pie {
         padding: 50px;
-        background-color: blue;
+    }
+    
+    #pieChartCanvas {
+        margin-top: calc(50% - 50px);
+        margin-left: 0px;
+    }
+    
+    #lineChartCanvas {
+        margin-top: 10%;
     }
     
     .line {
-        background-color: #14A04B;
         flex-grow: 10;
+        width: 90%;
     }
     
     .leg {
-        background-color: yellow;
         width: 300px;
+        height: 100%;
+        margin-top: 50px;
+        max-height: 700px;
+        padding-left: 40px;
+        align-self: center;
     }
     /* --------- legend --------- */
     
