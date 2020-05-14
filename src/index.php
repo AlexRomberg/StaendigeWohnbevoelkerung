@@ -28,6 +28,10 @@
 
 <body>
   <?php
+    if(!isset($_GET['x'])) {
+      $_GET['x'] = "Aadorf";
+    }
+
     /*fopen("data.json", 'w');
 
    function addLineToJSON($community, $district, $year, $country, $ammount)
