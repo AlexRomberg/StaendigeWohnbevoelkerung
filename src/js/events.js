@@ -38,3 +38,11 @@ function dropdownSelectionChanged() {
     //Redirect to yourself
     window.location.replace("index.php?x=" + x);
 }
+
+function onResize() {
+    pieChart.update();
+    lineChart.update();
+
+}
+
+window.addEventListener("resize", onResize);
